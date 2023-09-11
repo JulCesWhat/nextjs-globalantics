@@ -1,20 +1,27 @@
-import Link from "next/link";
+import Image from "next/image";
+import OutStoryPic from "../images/home-image-1.jpg";
+import styles from "./home.module.css";
 
 export default function Page() {
   return (
-    <main className="flex min-h-screen flex-col items-center justify-between p-24">
-      <div className="z-10 max-w-5xl w-full items-center justify-between font-mono text-sm lg:flex">
-        <h1>/Home</h1>
-        <h2>
-          <Link href={"/settings"}>Settings</Link>
-        </h2>
-        <h2>
-          <Link href={"/blog"}>Blog</Link>
-        </h2>
-        <h2>
-          <Link href={"/conference"}>Conference</Link>
-        </h2>
+    <>
+      <div className={styles.bgWrap}>
+        <Image
+          src={OutStoryPic}
+          alt="Our story pic"
+          quality={100}
+          placeholder="blur"
+          sizes={"100vw"}
+          fill
+          style={{
+            objectFit: "cover",
+          }}
+        />
       </div>
-    </main>
+      <h1 className={styles.bgHeader}>Welcome to the home page.</h1>
+      <p className={styles.bgText}>
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Amet, maiores?
+      </p>
+    </>
   );
 }

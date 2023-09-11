@@ -1,17 +1,35 @@
 import Link from "next/link";
+import Image from "next/image";
+import ConferencePic from "../images/home-image-1.jpg";
+import styles from "./conference.module.css";
 
 export default function Page() {
   return (
-    <main className="flex min-h-screen flex-col items-center justify-between p-24">
-      <div className="z-10 max-w-5xl w-full items-center justify-between font-mono text-sm lg:flex">
-        <h1>/Conference</h1>
-        <h2>
-          <Link href={"/conference/sessions"}>Sessions</Link>
-        </h2>
-        <h2>
-          <Link href={"/conference/speakers"}>Speakers</Link>
-        </h2>
+    <>
+      <div className={styles.bgWrap}>
+        <Image
+          src={ConferencePic}
+          alt="Conference pic"
+          quality={100}
+          placeholder="blur"
+          sizes={"100vw"}
+          fill
+          style={{
+            objectFit: "cover",
+          }}
+        />
       </div>
-    </main>
+      <h1 className={styles.bgHeader}>Welcome to Conference</h1>
+      <h2 className={styles.bgText}>
+        <Link className={styles.bgLinks} href={"/conference/sessions"}>
+          Sessions
+        </Link>
+      </h2>
+      <h2 className={styles.bgText}>
+        <Link className={styles.bgLinks} href={"/conference/speakers"}>
+          Speakers
+        </Link>
+      </h2>
+    </>
   );
 }
