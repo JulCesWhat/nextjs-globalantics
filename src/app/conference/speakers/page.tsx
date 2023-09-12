@@ -37,7 +37,9 @@ export default async function Page() {
       {data.speakers.map(({ id, name, bio }) => {
         return (
           <div key={id} className={styles.infoContainer}>
+            <Link href={`/conference/speakers/${name}`} className={styles.bgLinks}>
             <h3 className={styles.titleText}>{name}</h3>
+            </Link>
             <h5 className={styles.descText}>{bio}</h5>
           </div>
         );
